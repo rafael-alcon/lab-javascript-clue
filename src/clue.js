@@ -142,15 +142,12 @@ let misterio = {
 return misterio 
 }
 
-
+const envelope = pickMystery();
 // ITERATION 3
 
-function revealMystery() {
-    let datosCarta =[];
-    respuesta=""
-    datosCarta= pickMystery();
-    respuesta = `${datosCarta.suspect.firstName} ${datosCarta.suspect.lastName} killed Mr. Boddy using ${datosCarta.weapon.name} in the ${datosCarta.room.name}!`;
-   return respuesta
+function revealMystery(envelope) {
+    respuesta = `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`;
+    return respuesta
 }
 
 //revealMystery();
