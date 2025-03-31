@@ -125,17 +125,21 @@ const weaponsArray = [
 // ITERATION 2
 
 function selectRandom(arreglo) {
-
-    return Math.floor(Math.random() * (arreglo.length+1))
+    if (arreglo=="") {
+        return undefined
+    }
+    return arreglo[Math.floor(Math.random() * (arreglo.length))]
 }
 
 function pickMystery() {
-let misterio = [];
-misterio.push(selectRandom(suspectsArray));
-misterio.push(selectRandom(weaponsArray));
-misterio.push(selectRandom(roomsArray));
+let misterio = {
+    suspect:  selectRandom(suspectsArray),
+    weapon: selectRandom(weaponsArray),
+    room: selectRandom(roomsArray)
+};
+
 //console.log(misterio)
-return misterio
+return misterio 
 }
 
 
@@ -143,9 +147,10 @@ return misterio
 
 function revealMystery() {
     let datosCarta =[];
+    respuesta=""
     datosCarta= pickMystery();
-    console.log(`${suspectsArray[datosCarta[0]].firstName} ${suspectsArray[datosCarta[0]].lastName} killed Mr. Boddy using  ${weaponsArray[datosCarta[1]].name} in the ${roomsArray[datosCarta[2]].name} `);
-   
+    respuesta = `${datosCarta.suspect.firstName} ${datosCarta.suspect.lastName} killed Mr. Boddy using ${datosCarta.weapon.name} in the ${datosCarta.room.name}!`;
+   return respuesta
 }
 
 //revealMystery();
