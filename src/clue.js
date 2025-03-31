@@ -148,4 +148,4 @@ function revealMystery() {
    
 }
 
-revealMystery();
+//revealMystery();
