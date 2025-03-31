@@ -5,7 +5,7 @@
 const suspectsArray = [
    {    
     firstName: 'Jacob',
-    lastName: 'Green,'
+    lastName: 'Green',
     occupation: 'Entrepreneur',
     age: 45,
     description: 'He has a lot of connections',
@@ -16,9 +16,9 @@ const suspectsArray = [
     firstName: 'Doctor',
 lastName: 'Orchid',
 occupation: 'Scientist',
-age: 26
-description: 'PhD in plant toxicology. Adopted daughter of Mr. Boddy'
-image: 'http://www.radiotimes.com/uploads/images/Original/111967.jpg'
+age: 26,
+description: 'PhD in plant toxicology. Adopted daughter of Mr. Boddy',
+image: 'http://www.radiotimes.com/uploads/images/Original/111967.jpg',
 color: 'white'
    },
    {
@@ -29,7 +29,7 @@ age: 22,
 description: 'Billionaire video game designer',
 image: 'https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg',
 color: 'purple'
-   }
+   },
    {
     firstName: 'Kasandra',
 lastName: 'Scarlet',
@@ -43,7 +43,7 @@ color: 'red',
     firstName: 'Eleanor',
 lastName: 'Peacock',
 occupation: 'Socialité',
-age: 36
+age: 36,
 description: 'She is from a wealthy family and uses her status and money to earn popularity',
 image: 'https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg',
 color: 'blue'
@@ -89,7 +89,7 @@ const weaponsArray = [
     },
     {
         name: 'knife',
-        weight: 8\
+        weight: 8
     },
     {
         name: 'candlestick',
@@ -124,15 +124,28 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {
+function selectRandom(arreglo) {
 
-    
+    return Math.floor(Math.random() * (arreglo.length+1))
 }
 
-function pickMystery() {}
+function pickMystery() {
+let misterio = [];
+misterio.push(selectRandom(suspectsArray));
+misterio.push(selectRandom(weaponsArray));
+misterio.push(selectRandom(roomsArray));
+//console.log(misterio)
+return misterio
+}
 
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery() {
+    let datosCarta =[];
+    datosCarta= pickMystery();
+    console.log(`${suspectsArray[datosCarta[0]].firstName} ${suspectsArray[datosCarta[0]].lastName} killed Mr. Boddy using  ${weaponsArray[datosCarta[1]].name} in the ${roomsArray[datosCarta[2]].name} `);
+   
+}
 
+revealMystery();
